@@ -9,47 +9,43 @@
 <body>
     <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
     <header>
-        <!-- LEFT -->
-        <div class="left-group">
-          <div class="logo">
-              <img src="logo.png" alt="Logo Sklepu">
-          </div>
-          <div class="Nazwa">
-              <h1>Nazwa Sklepu</h1>
-          </div>
-        </div>
+  <div class="brand">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Logo Sklepu">
+      <span class="site-name">Nazwa Sklepu</span>
+    </a>
+  </div>
 
-        <!-- CENTER (same .kategorie, bez center-group) -->
-        <div class="kategorie">
-            <nav>
-                <ul>
-                    <li><a href="#">Kategoria 1</a></li>
-                    <li><a href="#">Kategoria 2</a></li>
-                    <li><a href="#">Kategoria 3</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
+  <div class="kategorie">
+    <nav>
+      <ul>
+        <li><a href="kat1.html">Kategoria 1</a></li>
+        <li><a href="kat2.html">Kategoria 2</a></li>
+        <li><a href="kat3.html">Kategoria 3</a></li>
+        <li><a href="kat4.html">Kategoria 4</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
 
-        <!-- RIGHT (search-bar + social-media) -->
-        <div class="right-group">
-          <div class="search-bar">
-              <input type="text" placeholder="Szukaj produktów...">
-          </div>
-          <div class="social-media">
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
-                    class="social-icon" aria-label="Facebook">
-                    <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
-                    <img src="dist/img/facebook.webp" class="hover-icon" alt="">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-                    class="social-icon" aria-label="Instagram">
-                    <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
-                    <img src="dist/img/instagram.webp" class="hover-icon" alt="">
-                </a>
-            </div>
-        </div>
-    </header>
+  <div class="right-group">
+    <div class="search-bar">
+      <input type="text" placeholder="Szukaj produktów...">
+    </div>
+    <div class="social-media">
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+         class="social-icon" aria-label="Facebook">
+        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+         class="social-icon" aria-label="Instagram">
+        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+      </a>
+    </div>
+  </div>
+</header>
 
     <hero>
         <div class="hero-content">
@@ -253,6 +249,7 @@
         </div>
         <div class="footer-bottom">
           <p>&copy; <span id="year"></span> Nazwa Sklepu. Wszelkie prawa zastrzeżone.</p>
+          <p>Stworzone przez <a href="https://webgoat.pl" target="_blank" rel="noopener noreferrer">WebGoat.pl</a></p>
         </div>
     </footer>
 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona główna</title>
+  <link rel="stylesheet" href="dist/styles/style.css">
+</head>
+<body>
+    <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
+     <header>
+  <div class="brand">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Logo Sklepu">
+      <span class="site-name">Nazwa Sklepu</span>
+    </a>
+  </div>
+
+  <div class="kategorie">
+    <nav>
+      <ul>
+        <li><a href="kat1.html">Kategoria 1</a></li>
+        <li><a href="kat2.html">Kategoria 2</a></li>
+        <li><a href="kat3.html">Kategoria 3</a></li>
+        <li><a href="kat4.html">Kategoria 4</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="right-group">
+    <div class="search-bar">
+      <input type="text" placeholder="Szukaj produktów...">
+    </div>
+    <div class="social-media">
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+         class="social-icon" aria-label="Facebook">
+        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+         class="social-icon" aria-label="Instagram">
+        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+      </a>
+    </div>
+  </div>
+</header>
+
+
+    <main class="main-products-layout">
+        <!-- PANEL OPISU (dynamiczny) -->
+        <aside class="product-description-panel" aria-live="polite">
+          <div class="desc-inner">
+            <h2>Wybierz produkt</h2>
+            <p>Najechanie na produkt pokaże jego opis.</p>
+            <span class="price-placeholder"></span>
+            <button class="buy-button hidden" type="button">Kup Teraz</button>
+          </div>
+        </aside>
+
+        <!-- LISTA / SEKCJE -->
+        <section class="products-zone">
+          <!-- Oryginalne opisy (ukryte źródło danych) -->
+          <section class="prod_description" hidden>
+              <div class="product1" data-title="Produkt 1" data-price="99.99 PLN">
+                  <h2>Produkt 1</h2>
+                  <p>Opis produktu 1</p>
+              </div>
+              <div class="product2" data-title="Produkt 2" data-price="149.99 PLN">
+                  <h2>Produkt 2</h2>
+                  <p>Opis produktu 2</p>
+              </div>
+              <div class="product3" data-title="Produkt 3" data-price="79.99 PLN">
+                  <h2>Produkt 3</h2>
+                  <p>Opis produktu 3</p>
+              </div>
+          </section>
+
+          <section class="featured-products">
+              <h2>Polecane Produkty</h2>
+              <div class="product-list">
+                  <div class="product-item" data-ref="product1" tabindex="0">
+                      <img src="dist/img/product1.jpg" alt="Produkt 1">
+                      <h3>Produkt 1</h3>
+                      <span class="price">99.99 PLN</span>
+                  </div>
+                  <div class="product-item" data-ref="product2" tabindex="0">
+                      <img src="dist/img/product2.jpg" alt="Produkt 2">
+                      <h3>Produkt 2</h3>
+                      <span class="price">149.99 PLN</span>
+                  </div>
+                  <div class="product-item" data-ref="product3" tabindex="0">
+                      <img src="dist/img/product3.jpg" alt="Produkt 3">
+                      <h3>Produkt 3</h3>
+                      <span class="price">79.99 PLN</span>
+                  </div>
+              </div>
+          </section>
+        </section>
+    </main>
+        <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Email: <a href="mailto:kontakt@sklep.pl">kontakt@sklep.pl</a></p>
+                <p>Tel: <a href="tel:+48123456789">+48 123 456 789</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Informacje</h3>
+                <ul>
+                    <li><a href="#">Regulamin</a></li>
+                    <li><a href="#">Polityka prywatności</a></li>
+                    <li><a href="#">Zwroty</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Śledź nas</h3>
+                <div class="social-media footer-social">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                       class="social-icon" aria-label="Facebook">
+                        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+                        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                       class="social-icon" aria-label="Instagram">
+                        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+                        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> Nazwa Sklepu. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script src="dist/scripts/script.js" defer></script>
+</body>
+</html>

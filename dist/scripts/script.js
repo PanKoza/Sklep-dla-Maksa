@@ -224,4 +224,69 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const panel = document.querySelector('.product-description-panel');
+  const productSource = document.querySelector('.prod_description');
+  const list = document.querySelector('.product-list');
+  if (!panel || !productSource || !list) return;
+
+  const btnTemplate = panel.querySelector('.buy-button');
+  const titleEl = panel.querySelector('h2');
+  const textPara = panel.querySelector('p');
+  const priceEl = panel.querySelector('.price-placeholder');
+
+  function loadProduct(ref) {
+    const source = productSource.querySelector('.' + ref);
+    if (!source) return;
+    const title = source.dataset.title || source.querySelector('h2')?.textContent || 'Produkt';
+    const price = source.dataset.price || '';
+    const descP = source.querySelector('p')?.textContent || '';
+    titleEl.textContent = title;
+    textPara.textContent = descP;
+    priceEl.textContent = price ? 'Cena: ' + price : '';
+    btnTemplate.classList.remove('hidden');
+    btnTemplate.setAttribute('data-product', ref);
+  }
+
+  function clearActive() {
+    list.querySelectorAll('.product-item.is-active').forEach(i=>i.classList.remove('is-active'));
+  }
+
+  list.addEventListener('mouseover', e => {
+    const card = e.target.closest('.product-item');
+    if (!card || !list.contains(card)) return;
+    const ref = card.dataset.ref;
+    if (!ref) return;
+    clearActive();
+    card.classList.add('is-active');
+    loadProduct(ref);
+  });
+
+  list.addEventListener('focusin', e => {
+    const card = e.target.closest('.product-item');
+    if (!card) return;
+    const ref = card.dataset.ref;
+    clearActive();
+    card.classList.add('is-active');
+    loadProduct(ref);
+  });
+
+  list.addEventListener('mouseleave', () => {
+    // Optionalnie utrzymujemy ostatni – brak resetu
+  });
+
+  // Domyślnie pierwszy
+  const first = list.querySelector('.product-item');
+  if (first) {
+    first.classList.add('is-active');
+    loadProduct(first.dataset.ref);
+  }
+
+  btnTemplate.addEventListener('click', () => {
+    const ref = btnTemplate.getAttribute('data-product');
+    if (ref) {
+      // Tu można dodać logikę dodania do koszyka
+      console.log('Kup:', ref);
+    }
+  });
 });
