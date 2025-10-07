@@ -30,7 +30,19 @@
 
   <div class="right-group">
     <div class="search-bar">
-      <input type="text" placeholder="Szukaj produktów...">
+      <input type="text" list="search-suggestions" id="search-input" placeholder="Szukaj produktów...">
+      <datalist id="search-suggestions">
+        <option value="Produkt 1" data-href="prod1.html">
+        <option value="Produkt 2" data-href="prod2.html">
+        <option value="Produkt 3" data-href="prod3.html">
+        <option value="Produkt 4" data-href="prod4.html">
+        <option value="Produkt 5" data-href="prod5.html">
+        <option value="Produkt 6" data-href="prod6.html">
+        <option value="Produkt 7" data-href="prod7.html">
+        <option value="Produkt 8" data-href="prod8.html">
+        <option value="Produkt 9" data-href="prod9.html">
+        <option value="Produkt 10" data-href="prod10.html">
+      </datalist>
     </div>
     <div class="social-media">
       <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
@@ -52,17 +64,17 @@
             <div class="prod1">
                 <h2>Produkt 1</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <button class="buy-button">Kup Teraz</button>
+                <a href="prod1.html" class="buy-button">Kup Teraz</a>
             </div>
             <div class="prod2">
                 <h2>Produkt 2</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <button class="buy-button">Kup Teraz</button>
+                <a href="prod2.html" class="buy-button">Kup Teraz</a>
             </div>
             <div class="prod3">
                 <h2>Produkt 3</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <button class="buy-button">Kup Teraz</button>
+                <a href="prod3.html" class="buy-button">Kup Teraz</a>
             </div>
         </div>
         <div class="hero-image">
@@ -82,7 +94,7 @@
           <div class="product-content">
             <h3>Nazwa produktu</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <button class="prod-cta">Kup teraz</button>
+            <a href="prod4.html" class="prod-cta">Kup teraz</a>
           </div>
           <div class="product-image">
             <img src="product1.jpg" alt="Nazwa produktu">
@@ -103,7 +115,7 @@
           <div class="product-content">
             <h3>Nazwa produktu</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <button class="prod-cta">Kup teraz</button>
+            <a href="prod5.html" class="prod-cta">Kup teraz</a>
           </div>
           <div class="product-image">
             <img src="product1.jpg" alt="Nazwa produktu">
@@ -125,19 +137,19 @@
       <h1>KATEGORIE</h1>
       <div class="kategorie-viewport">
         <div class="kategorie-track">
-          <div class="kategoria">
+          <div class="kategoria" data-href="kat1.html" role="link" tabindex="0">
             <img src="cat1.jpg" alt="Kategoria 1">
             <h3>Kategoria 1</h3>
           </div>
-          <div class="kategoria">
+          <div class="kategoria" data-href="kat2.html" role="link" tabindex="0">
             <img src="cat2.jpg" alt="Kategoria 2">
             <h3>Kategoria 2</h3>
           </div>
-          <div class="kategoria">
+          <div class="kategoria" data-href="kat3.html" role="link" tabindex="0">
             <img src="cat3.jpg" alt="Kategoria 3">
             <h3>Kategoria 3</h3>
           </div>
-          <div class="kategoria">
+          <div class="kategoria" data-href="kat4.html" role="link" tabindex="0">
             <img src="cat4.jpg" alt="Kategoria 4">
             <h3>Kategoria 4</h3>
           </div>
@@ -188,6 +200,10 @@
             <div class="opis">
               <h3>Produkt 9</h3>
               <p>Sprawdź opinie naszych zadowolonych klientów.</p>
+            </div>
+            <div class="opis">
+              <h3>Produkt 10</h3>
+              <p>Oferujemy różnorodne metody dostawy, aby sprostać Twoim potrzebom.</p>
             </div>
           </div>
       </div>
