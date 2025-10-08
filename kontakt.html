@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona główna</title>
+  <link rel="stylesheet" href="dist/styles/style.css">
+</head>
+<body>
+    <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
+    <header>
+  <div class="brand">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Logo Sklepu">
+      <span class="site-name">Nazwa Sklepu</span>
+    </a>
+  </div>
+
+  <div class="kategorie">
+    <nav>
+      <ul>
+        <li><a href="kat1.html">Kategoria 1</a></li>
+        <li><a href="kat2.html">Kategoria 2</a></li>
+        <li><a href="kat3.html">Kategoria 3</a></li>
+        <li><a href="kat4.html">Kategoria 4</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="right-group">
+    <div class="search-bar">
+      <input type="text" list="search-suggestions" id="search-input" placeholder="Szukaj produktów...">
+      <datalist id="search-suggestions">
+        <option value="Produkt 1" data-href="prod1.html">
+        <option value="Produkt 2" data-href="prod2.html">
+        <option value="Produkt 3" data-href="prod3.html">
+        <option value="Produkt 4" data-href="prod4.html">
+        <option value="Produkt 5" data-href="prod5.html">
+        <option value="Produkt 6" data-href="prod6.html">
+        <option value="Produkt 7" data-href="prod7.html">
+        <option value="Produkt 8" data-href="prod8.html">
+        <option value="Produkt 9" data-href="prod9.html">
+        <option value="Produkt 10" data-href="prod10.html">
+      </datalist>
+    </div>
+    <div class="social-media">
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+         class="social-icon" aria-label="Facebook">
+        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+         class="social-icon" aria-label="Instagram">
+        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+      </a>
+    </div>
+  </div>
+</header>
+<main class="contact-page">
+  <h2>Kontakt</h2>
+  <p class="contact-lead">Jeśli masz pytania lub potrzebujesz pomocy, skontaktuj się z nami – odpiszemy jak najszybciej.</p>
+
+  <section class="contact-card">
+    <div class="contact-grid">
+      <aside class="contact-info">
+        <h3>Dane kontaktowe</h3>
+        <ul class="contact-list">
+          <li class="email">
+            <span>Email</span>
+            <a href="mailto:kontakt@sklep.pl">kontakt@sklep.pl</a>
+          </li>
+          <li class="phone">
+            <span>Telefon</span>
+            <a href="tel:+48123456789">+48 123 456 789</a>
+          </li>
+          <li class="address">
+            <span>Adres</span>
+            <address>ul. Przykładowa 1, 00-001 Warszawa</address>
+          </li>
+        </ul>
+
+        <div class="contact-extra">
+          <p>Godziny pracy: <strong>pon–pt 9:00–17:00</strong></p>
+          <p>Preferujesz social media? Napisz do nas:</p>
+          <div class="social-media footer-social">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+               class="social-icon" aria-label="Facebook">
+              <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+              <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+               class="social-icon" aria-label="Instagram">
+              <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+              <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <section class="contact-form-wrap">
+        <h3>Formularz kontaktowy</h3>
+        <form class="contact-form" action="submit_form.php" method="POST" novalidate>
+          <div class="form-row">
+            <label for="name">Imię i nazwisko</label>
+            <input type="text" id="name" name="name" placeholder="Jan Kowalski" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="jan.kowalski@example.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="message" rows="6" placeholder="W czym możemy pomóc?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Wyślij wiadomość</button>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Email: <a href="mailto:kontakt@sklep.pl">kontakt@sklep.pl</a></p>
+                <p>Tel: <a href="tel:+48123456789">+48 123 456 789</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Informacje</h3>
+                <ul>
+                    <li><a href="#">Regulamin</a></li>
+                    <li><a href="#">Polityka prywatności</a></li>
+                    <li><a href="#">Zwroty</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Śledź nas</h3>
+                <div class="social-media footer-social">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                       class="social-icon" aria-label="Facebook">
+                        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+                        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                       class="social-icon" aria-label="Instagram">
+                        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+                        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> Nazwa Sklepu. Wszelkie prawa zastrzeżone.</p>
+          <p>Stworzone przez <a href="https://webgoat.pl" target="_blank" rel="noopener noreferrer">WebGoat.pl</a></p>
+        </div>
+    </footer>
+    <!-- (Opcjonalnie – jeśli chcesz, aby w stopce uzupełniał się rok) -->
+<script src="dist/scripts/script.js" defer></script>
+</body>
+</html>

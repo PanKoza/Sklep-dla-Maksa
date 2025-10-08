@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navPrev: '.kategorie-nav .prev-button',
     navNext: '.kategorie-nav .next-button',
     desktop: 3, tablet: 2, mobile: 1,
-    interval: 4500
+    interval: 2500
   });
 
   initFlexSlider({
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navPrev: '.opisy-nav .prev-button',
     navNext: '.opisy-nav .next-button',
     desktop: 3, tablet: 2, mobile: 1,
-    interval: 5000
+    interval: 2500
   });
 
   const y = document.getElementById('year');

@@ -1067,8 +1067,6 @@ about::before {
      radial-gradient(circle at 85% 20%, rgba(228,0,43,.08), transparent 60%),
      radial-gradient(circle at 15% 85%, rgba(228,0,43,.06), transparent 65%);
   pointer-events:none;
-  opacity:.9;
-  mix-blend-mode:normal;
 }
 
 about .about-inner {
@@ -2345,3 +2343,241 @@ footer .footer-social .social-icon:focus-visible {
   .related-card .price { font-size: .95rem; }
 }
 /* --- END RELATED PRODUCTS (bigger visuals) --- */
+
+/* --- CONTACT PAGE --- */
+.contact-page {
+  max-width: 1200px;
+  margin: 3rem auto 5rem;
+  padding: 0 2rem;
+  display: block;
+}
+.contact-page h2 {
+  margin: 0 0 .8rem;
+  font-size: clamp(1.8rem, 1.2vw + 1.2rem, 2.4rem);
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: #151515;
+  line-height: 1.1;
+  position: relative;
+}
+.contact-page h2::after {
+  content:"";
+  display:block;
+  width:90px; height:6px;
+  margin:.75rem 0 0;
+  border-radius:4px;
+  background:linear-gradient(90deg, var(--accent) 0%, #ff4d69 75%);
+}
+.contact-page .contact-lead {
+  color:#525258;
+  margin: .2rem 0 1.6rem;
+  font-size: 1rem;
+}
+
+/* Karta + siatka */
+.contact-card {
+  background: linear-gradient(135deg,#ffffff 0%, #f7f7f8 55%, #f0f0f2 100%);
+  border-radius: 28px;
+  box-shadow: 0 14px 40px -14px rgba(0,0,0,.18), 0 6px 16px -6px rgba(0,0,0,.12);
+  padding: 2rem;
+}
+.contact-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Kolumna: dane kontaktowe */
+.contact-info h3,
+.contact-form-wrap h3 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: .4px;
+  color:#181818;
+}
+.contact-list {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  display: grid;
+  gap: .75rem;
+}
+.contact-list li {
+  background:#fff;
+  border-radius:16px;
+  padding: .9rem 1rem;
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  align-items:center;
+  gap: .75rem;
+  box-shadow: 0 10px 26px -14px rgba(0,0,0,.12);
+  position:relative;
+}
+.contact-list li::before {
+  content:"";
+  position:absolute;
+  left:10px; top:50%;
+  transform:translateY(-50%);
+  width:10px; height:10px;
+  border-radius:50%;
+  background: var(--accent);
+  box-shadow:0 0 0 4px rgba(228,0,43,.18);
+}
+.contact-list li span {
+  font-weight:700;
+  color:#1f1f1f;
+}
+.contact-list a {
+  color:#333;
+  text-decoration:none;
+  position:relative;
+}
+.contact-list a::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-3px;
+  width:0; height:2px;
+  background:var(--accent);
+  transition: width .3s;
+}
+.contact-list a:hover,
+.contact-list a:focus-visible { color:#000; }
+.contact-list a:hover::after,
+.contact-list a:focus-visible::after { width:100%; }
+
+/* Kolumna: formularz */
+.contact-form {
+  background:#fff;
+  border-radius:20px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 26px -12px rgba(0,0,0,.12);
+  display:grid;
+  gap:1rem;
+}
+.contact-form .form-row {
+  display:grid;
+  gap:.45rem;
+}
+.contact-form label {
+  font-size:.9rem;
+  color:#444;
+  font-weight:600;
+}
+.contact-form input,
+.contact-form textarea {
+  width:100%;
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:.8rem .95rem;
+  font-size:.95rem;
+  background:#fafafa;
+  outline:none;
+  transition:border-color .25s, background .25s, box-shadow .25s;
+}
+.contact-form textarea { resize:vertical; }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  background:#fff;
+  box-shadow: 0 6px 18px -12px rgba(228,0,43,.25);
+}
+.btn-primary {
+  align-self:start;
+  background: linear-gradient(135deg, var(--accent) 0%, #b80024 100%);
+  color:#fff;
+  border:none;
+  border-radius:40px;
+  padding:.9rem 1.5rem;
+  font-weight:800;
+  letter-spacing:.4px;
+  cursor:pointer;
+  box-shadow:0 10px 26px -12px rgba(228,0,43,.55);
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -14px rgba(228,0,43,.6);
+}
+.btn-primary:active { transform: translateY(-1px) scale(.98); }
+
+/* RWD */
+@media (max-width: 960px) {
+  .contact-page { padding: 0 1.25rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+}
+/* --- END CONTACT PAGE --- */
+
+/* --- SOCIAL ICONS FIX (header + footer unified) --- */
+.social-media,
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.social-media .social-icon,
+.footer-social .social-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f2f2f3;
+  line-height: 0;             /* bez przeskoków baseline */
+  vertical-align: middle;
+  transition: background .3s, transform .3s, box-shadow .3s;
+}
+
+.social-media .social-icon img,
+.footer-social .social-icon img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 22px;
+  height: 22px;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  filter: none;               /* bez invert w stopce */
+}
+
+.social-media .social-icon .hover-icon,
+.footer-social .social-icon .hover-icon { opacity: 0; }
+
+.social-media .social-icon:hover .hover-icon,
+.social-media .social-icon:focus-visible .hover-icon,
+.footer-social .social-icon:hover .hover-icon,
+.footer-social .social-icon:focus-visible .hover-icon { opacity: 1; }
+
+.social-media .social-icon:hover .default-icon,
+.social-media .social-icon:focus-visible .default-icon,
+.footer-social .social-icon:hover .default-icon,
+.footer-social .social-icon:focus-visible .default-icon { opacity: 0; }
+
+.social-media .social-icon:hover,
+.social-media .social-icon:focus-visible,
+.footer-social .social-icon:hover,
+.footer-social .social-icon:focus-visible {
+  background: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px -10px rgba(228,0,43,.55);
+}
+
+.social-media .social-icon:focus-visible,
+.footer-social .social-icon:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .social-media .social-icon,
+  .footer-social .social-icon { width: 36px; height: 36px; }
+  .social-media .social-icon img,
+  .footer-social .social-icon img { width: 20px; height: 20px; }
+}
+/* --- END SOCIAL ICONS FIX --- */
