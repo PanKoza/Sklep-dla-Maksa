@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna</title>
   <link rel="stylesheet" href="dist/styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
     <header>
   <div class="brand">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Logo Sklepu">
-      <span class="site-name">Nazwa Sklepu</span>
+      <img src="dist/img/1.png" alt="Logo Sklepu">
+      <span class="site-name">WZORUJEMY.PL</span>
     </a>
   </div>
 
@@ -23,12 +26,22 @@
         <li><a href="kat2.html">Kategoria 2</a></li>
         <li><a href="kat3.html">Kategoria 3</a></li>
         <li><a href="kat4.html">Kategoria 4</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="right-group">
+    <a href="kontakt.html">Kontakt</a>
+    <button class="cart" aria-label="Koszyk zakupów">
+      <!-- Ikona koszyka -->
+      <svg class="icon-cart" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="9" cy="21" r="1" fill="currentColor"></circle>
+        <circle cx="20" cy="21" r="1" fill="currentColor"></circle>
+        <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span class="cart-count" aria-live="polite" aria-atomic="true">0</span>
+    </button>
     <div class="search-bar">
       <input type="text" list="search-suggestions" id="search-input" placeholder="Szukaj produktów...">
       <datalist id="search-suggestions">
@@ -59,32 +72,32 @@
   </div>
 </header>
 
-    <hero>
+    <hero role="region" aria-label="Wyróżnione">
         <div class="hero-content">
-            <div class="prod1">
+            <div class="prod1 is-active">
                 <h2>Produkt 1</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
                 <a href="prod1.html" class="buy-button">Kup Teraz</a>
             </div>
             <div class="prod2">
                 <h2>Produkt 2</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
                 <a href="prod2.html" class="buy-button">Kup Teraz</a>
             </div>
             <div class="prod3">
                 <h2>Produkt 3</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
                 <a href="prod3.html" class="buy-button">Kup Teraz</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="hero-image.jpg" alt="prod1">
-            <img src="hero-image.jpg" alt="prod2">
-            <img src="hero-image.jpg" alt="prod3">
+            <img class="is-active" src="dist/img/IMG_4354.jpg" alt="prod1">
+            <img src="dist/img/IMG_4368.jpg" alt="prod2">
+            <img src="dist/img/IMG_4369.jpg" alt="prod3">
         </div>
-        <buttons>
-            <button class="prev-button">&#10094;</button>
-            <button class="next-button">&#10095;</button>
+        <buttons class="hero-nav">
+            <button class="prev-button" aria-label="Poprzedni slajd">&#10094;</button>
+            <button class="next-button" aria-label="Następny slajd">&#10095;</button>
         </buttons>
     </hero>
 
@@ -97,7 +110,7 @@
             <a href="prod4.html" class="prod-cta">Kup teraz</a>
           </div>
           <div class="product-image">
-            <img src="product1.jpg" alt="Nazwa produktu">
+            <img src="dist/img/IMG_4368.jpg" alt="Nazwa produktu">
           </div>
         </div>
 
@@ -107,7 +120,7 @@
             </div>
 
             <div class="product-image">
-                <img src="product1.jpg" alt="Product 1">
+                <img src="dist/img/IMG_4368.jpg" alt="Product 1">
             </div>
         </div>
 
@@ -118,7 +131,7 @@
             <a href="prod5.html" class="prod-cta">Kup teraz</a>
           </div>
           <div class="product-image">
-            <img src="product1.jpg" alt="Nazwa produktu">
+            <img src="dist/img/IMG_4368.jpg" alt="Nazwa produktu">
           </div>
         </div>
 
@@ -128,7 +141,7 @@
             </div>
 
             <div class="product-image">
-                <img src="product1.jpg" alt="Product 1">
+                <img src="dist/img/IMG_4368.jpg" alt="Product 1">
             </div>
         </div>
     </div>
@@ -138,7 +151,7 @@
       <div class="kategorie-viewport">
         <div class="kategorie-track">
           <div class="kategoria" data-href="kat1.html" role="link" tabindex="0">
-            <img src="cat1.jpg" alt="Kategoria 1">
+            <img src="dist/img/IMG_4368.jpg" alt="Kategoria 1">
             <h3>Kategoria 1</h3>
           </div>
           <div class="kategoria" data-href="kat2.html" role="link" tabindex="0">
@@ -162,47 +175,47 @@
     </kategorie>
 
     <opisy role="region" aria-label="Opisy produktów">
-      <h1>OPISY</h1>
+      <h1>Galeria</h1>
       <div class="opisy-viewport">
         <div class="opisy-track">
           <div class="opis">
-            <h3>Produkt 1</h3>
+            <h3>Zdjęcie 1</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
           </div>
           <div class="opis">
-            <h3>Produkt 2</h3>
+            <h3>Zdjęcie 2</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
           </div>
             <div class="opis">
-              <h3>Produkt 3</h3>
+              <h3>Zdjęcie 3</h3>
               <p>Twoje zadowolenie jest dla nas najważniejsze. Dlatego oferujemy łatwe zwroty...</p>
             </div>
             <div class="opis">
-              <h3>Produkt 4</h3>
+              <h3>Zdjęcie 4</h3>
               <p>Dołącz do naszego programu lojalnościowego i zbieraj punkty za każde zakupy...</p>
             </div>
             <div class="opis">
-              <h3>Produkt 5</h3>
+              <h3>Zdjęcie 5</h3>
               <p>Obsługa klienta 24/7 – czat, e‑mail lub telefon, zawsze gdy potrzebujesz.</p>
             </div>
             <div class="opis">
-              <h3>Produkt 6</h3>
+              <h3>Zdjęcie 6</h3>
               <p>Subskrybuj newsletter, aby otrzymywać ekskluzywne oferty i nowości.</p>
             </div>
             <div class="opis">
-              <h3>Produkt 7</h3>
+              <h3>Zdjęcie 7</h3>
               <p>Oferujemy szeroki wybór produktów od renomowanych marek.</p>
             </div>
             <div class="opis">
-              <h3>Produkt 8</h3>
+              <h3>Zdjęcie 8</h3>
               <p>Bezpieczne płatności online – Twoje dane są chronione.</p>
             </div>
             <div class="opis">
-              <h3>Produkt 9</h3>
+              <h3>Zdjęcie 9</h3>
               <p>Sprawdź opinie naszych zadowolonych klientów.</p>
             </div>
             <div class="opis">
-              <h3>Produkt 10</h3>
+              <h3>Zdjęcie 10</h3>
               <p>Oferujemy różnorodne metody dostawy, aby sprostać Twoim potrzebom.</p>
             </div>
             <div class="opis">

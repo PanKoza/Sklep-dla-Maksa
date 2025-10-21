@@ -25,40 +25,47 @@ document.addEventListener('DOMContentLoaded', () => {
   (function initHero(){
     const hero = document.querySelector('hero');
     if (!hero) return;
-    const contentSlides = Array.from(hero.querySelectorAll('.hero-content > div'));
-    const imageSlides   = Array.from(hero.querySelectorAll('.hero-image img'));
+
+    const slides = Array.from(hero.querySelectorAll('.hero-content > div'));
+    const images = Array.from(hero.querySelectorAll('.hero-image img'));
     const prevBtn = hero.querySelector('.prev-button');
     const nextBtn = hero.querySelector('.next-button');
-    const total = Math.min(contentSlides.length, imageSlides.length);
-    if (!total) return;
-    let index=0, timer=null, INT=5000;
-    function show(i){
-      index = (i+total)%total;
-      contentSlides.forEach((c,ci)=>{
-        const act = ci===index;
-        c.classList.toggle('is-active', act);
-        c.hidden = !act;
-      });
-      imageSlides.forEach((im,ci)=>{
-        const act = ci===index;
-        im.classList.toggle('is-active', act);
-        im.hidden = !act;
-      });
+    const count = Math.min(slides.length, images.length);
+    if (!count) return;
+
+    let index = slides.findIndex(s => s.classList.contains('is-active'));
+    if (index < 0) index = 0;
+
+    function sync() {
+      slides.forEach((s,i)=> s.classList.toggle('is-active', i === index));
+      images.forEach((img,i)=> img.classList.toggle('is-active', i === index));
     }
-    function next(){ show(index+1); }
-    function prev(){ show(index-1); }
-    function start(){ stop(); timer=setInterval(next,INT); }
-    function stop(){ if(timer) clearInterval(timer); timer=null; }
-    if (nextBtn) nextBtn.addEventListener('click', ()=>{ next(); start(); });
-    if (prevBtn) prevBtn.addEventListener('click', ()=>{ prev(); start(); });
+    function show(i){
+      index = (i + count) % count;
+      sync();
+    }
+    const next = () => show(index + 1);
+    const prev = () => show(index - 1);
+
+    // Sterowanie
+    nextBtn?.addEventListener('click', next);
+    prevBtn?.addEventListener('click', prev);
+    hero.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    // Autoplay z pauzą na hover
+    let timer = null;
+    const INTERVAL = 5000;
+    const start = () => { stop(); timer = setInterval(next, INTERVAL); };
+    const stop  = () => { if (timer) clearInterval(timer); timer = null; };
     hero.addEventListener('mouseenter', stop);
     hero.addEventListener('mouseleave', start);
-    hero.addEventListener('keydown', e=>{
-      if (e.key==='ArrowRight'){ next(); start(); }
-      if (e.key==='ArrowLeft'){ prev(); start(); }
-    });
-    hero.setAttribute('tabindex','0');
-    show(0); start();
+
+    // Init
+    sync();
+    start();
   })();
 
   /* Uniwersalny slider (kategorie + opisy) */
