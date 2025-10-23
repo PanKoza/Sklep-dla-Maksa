@@ -584,4 +584,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowLeft') prev();
     });
   }
+
+  /* GRAWER – podgląd tekstu na zdjęciu */
+  {
+    const input = document.getElementById('grawer-text');
+    const preview = document.getElementById('grawer-preview');
+    const counter = document.querySelector('.grawer-counter');
+    if (input && preview) {
+      const render = () => {
+        const txt = input.value.trim();
+        preview.textContent = txt;
+        preview.classList.toggle('visible', txt.length > 0);
+        if (counter) counter.textContent = `${input.value.length}/15`;
+      };
+      input.addEventListener('input', render);
+      render();
+    }
+  }
 });
