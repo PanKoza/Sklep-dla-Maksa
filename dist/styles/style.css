@@ -321,28 +321,79 @@ hero .hero-content > div.is-active {
   pointer-events: auto;
 }
 
-hero .hero-image {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  min-height: 360px;
-  z-index: 1;
+/* === HERO IMAGE – transparent, centered, smaller + futuristic FX === */
+hero .hero-image{
+  /* usuń wizualną ramkę */
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0;
+  /* centrowanie zawartości */
+  display: grid;
+  place-items: center;
+  /* wysokość zostaje z wcześniejszych stylów */
 }
-hero .hero-image img {
+
+hero .hero-image img{
+  /* mniejsze i dokładnie na środku wrappera */
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(1.04);
-  transition: opacity .75s ease, transform 1.2s cubic-bezier(.2,.6,.1,1);
-  will-change: opacity, transform;
+  margin: auto;
+  width: min(74%, 700px);
+  max-height: 85%;
+  height: auto;
+  object-fit: contain;
+
+  /* animacja wyjścia (domyślnie dla nieaktywnych) */
+  animation: holoOut .6s ease forwards;
+  pointer-events: none;
 }
-hero .hero-image img.is-active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 1;
+
+hero .hero-image img.is-active{
+  /* animacja wejścia dla aktywnego */
+  animation: holoIn .9s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+/* Futurystyczne wejście/wyjście */
+@keyframes holoIn{
+  0%{
+    opacity:0;
+    transform: scale(.88) rotateX(10deg);
+    filter: blur(6px) drop-shadow(0 0 0 rgba(0,255,255,0));
+  }
+  45%{
+    opacity:1;
+    transform: scale(1) rotateX(0);
+    filter:
+      drop-shadow(0 0 22px rgba(0,255,255,.45))
+      drop-shadow(0 0 44px rgba(255,0,128,.25));
+  }
+  100%{
+    opacity:1;
+    transform: scale(1);
+    filter: drop-shadow(0 14px 36px rgba(0,0,0,.35));
+  }
+}
+
+@keyframes holoOut{
+  0%{
+    opacity:1;
+    transform: scale(1);
+    filter: drop-shadow(0 10px 26px rgba(0,0,0,.35));
+  }
+  100%{
+    opacity:0;
+    transform: scale(1.06) translateY(6px);
+    filter: blur(6px) drop-shadow(0 0 0 rgba(0,0,0,0));
+  }
+}
+
+/* Szacunek dla ustawień systemowych */
+@media (prefers-reduced-motion: reduce){
+  hero .hero-image img,
+  hero .hero-image img.is-active{
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Nawigacja w hero */
@@ -534,9 +585,8 @@ hero .hero-image {
 }
 
 hero .hero-image img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
+  width: 100%;
+  height: 100%;
   position:absolute;
   inset:0;
   opacity:0;
@@ -2462,7 +2512,7 @@ footer .footer-social .social-icon:focus-visible {
   margin: 0 0 1rem;
   font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: .4px;
+  letter-spacing:.4px;
   color:#181818;
 }
 .contact-list {
