@@ -601,4 +601,23 @@ document.addEventListener('DOMContentLoaded', () => {
       render();
     }
   }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.collab-btn[data-scroll-target]');
+    if (!btn) return;
+    const target = document.querySelector(btn.dataset.scrollTarget);
+    if (!target) return;
+
+    const header = document.querySelector('header');
+    const info = document.querySelector('info');
+    const offset = (header?.offsetHeight || 0) + (info?.offsetHeight || 0) + 16;
+
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+
+    target.setAttribute('tabindex','-1');
+    target.focus({ preventScroll:true });
+    setTimeout(()=> target.removeAttribute('tabindex'), 1000);
+  });
 });

@@ -1,6 +1,6 @@
 :root {
-  --info-height: 70px;      /* dopasuj po podglądzie */
-  --header-height: 90px;    /* dopasuj po podglądzie */
+  --info-height: 52px;      /* było: 70px */
+  --header-height: 90px;
   --bg-light: #ffffff;
   --accent: #e4002b;
   --text-dark: #222;
@@ -31,13 +31,13 @@ info {
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:2rem;
+  gap:1rem; /* było: 2rem */
   padding:0 .75rem;
   overflow:hidden;
 }
 
 info h1 {
-  font-size:1rem;
+  font-size:.95rem; /* było: 1rem */
   font-weight:600;
   white-space:nowrap;
   transition: opacity .5s;
@@ -709,7 +709,6 @@ hero buttons button {
   display:grid;
   grid-template-columns: 1fr 1fr;
   align-items:center;
-  position:relative;
 }
 
 /* Zapewnij równą wysokość obrazka przy pełnoekranowym layoucie */
@@ -876,6 +875,28 @@ hero buttons button {
     transition:none;
   }
 }
+
+/* Obrazek ma się cały mieścić w kaflu .product-item (kat1 > featured-products) */
+.featured-products .product-item {
+  display: grid;
+  grid-template-rows: minmax(260px, 1fr) auto auto; /* strefa obrazu + tytuł + cena */
+  gap: .75rem;
+}
+
+.featured-products .product-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* bez kadrowania */
+  display: block;
+}
+
+/* Mobile: nieco mniejsza minimalna wysokość strefy obrazu */
+@media (max-width: 700px) {
+  .featured-products .product-item {
+    grid-template-rows: minmax(200px, 1fr) auto auto;
+  }
+}
+
 /* --- END PRODUCTS STYLING --- */
 
 /* --- SCOPING: karty produktów tylko w sekcji listy (kat1) --- */
@@ -1256,7 +1277,6 @@ about .about-cta {
   letter-spacing:.5px;
   box-shadow:0 10px 28px -10px rgba(228,0,43,.55), 0 4px 12px -6px rgba(0,0,0,.25);
   transition:transform .35s, box-shadow .35s, background .35s;
-  position:relative;
 }
 
 about .about-cta:hover,
@@ -2930,3 +2950,105 @@ header .right-group .cart:focus-visible {
 }
 .product-info .grawer-counter.near-limit { color: #b35a00; background: #fff3df; }
 .product-info .grawer-counter.at-limit   { color: #a40000; background: #ffe6ea; }
+
+.home-contact {
+  max-width: 1200px;
+  margin: 4rem auto 1.25rem;
+  padding: 0 2rem;
+}
+
+.home-contact h2 {
+  margin: 0 0 .6rem;
+  font-size: clamp(1.8rem, 1.2vw + 1.2rem, 2.4rem);
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: var(--text-dark, #151515);
+  line-height: 1.1;
+  position: relative;
+}
+
+.home-contact h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 6px;
+  margin: .75rem 0 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, #ff4d69 75%);
+  box-shadow: 0 6px 16px -10px rgba(228, 0, 43, .6);
+}
+
+.home-contact .contact-lead {
+  color: #525258;
+  margin: .25rem 0 0;
+  font-size: clamp(1rem, .2vw + .95rem, 1.1rem);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.collab-btn {
+  --btn-pad-y: .55rem;
+  --btn-pad-x: 1.15rem;
+  background: linear-gradient(90deg, var(--accent) 0%, #ff4d69 75%);
+  color:#fff;
+  font-size:.85rem;
+  font-weight:600;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  border:none;
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border-radius: 40px;
+  cursor:pointer;
+  position:relative;
+  box-shadow: 0 3px 10px -4px rgba(228,0,43,.5);
+  transition: background .35s, transform .25s, box-shadow .35s;
+}
+.collab-btn::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background: radial-gradient(circle at 30% 40%, rgba(255,255,255,.4), transparent 60%);
+  opacity:.0;
+  transition:opacity .4s;
+  pointer-events:none;
+}
+.collab-btn:hover,
+.collab-btn:focus-visible {
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px -6px rgba(228,0,43,.55);
+}
+.collab-btn:hover::after,
+.collab-btn:focus-visible::after { opacity:.55; }
+.collab-btn:active {
+  transform:translateY(0);
+  box-shadow:0 3px 10px -4px rgba(228,0,43,.5);
+}
+.collab-btn:focus-visible {
+  outline:2px solid #ff4d69;
+  outline-offset:2px;
+}
+
+/* Większe karty tylko w sekcji "Polecane Produkty" (kat1) */
+.featured-products .product-list {
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); /* było: 320px */
+  gap: 2.4rem; /* było: 2.2rem */
+}
+
+.featured-products .product-item {
+  padding: 1.6rem 1.6rem 2.1rem; /* było: 1.4rem 1.4rem 1.9rem */
+  min-height: 520px;             /* było: 420px */
+}
+
+.featured-products .product-item img {
+  aspect-ratio: 4 / 3;           /* było: 1 / 1 */
+}
+
+/* RWD: na wąskich ekranach trochę mniejsze */
+@media (max-width: 800px) {
+  .featured-products .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.4rem;
+  }
+  .featured-products .product-item { min-height: 400px; }
+}

@@ -8,29 +8,51 @@
 </head>
 <body>
     <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
-     <header>
+<header>
   <div class="brand">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Logo Sklepu">
-      <span class="site-name">Nazwa Sklepu</span>
+      <img src="dist/img/1.png" alt="Logo Sklepu">
+      <span class="site-name">WZORUJEMY.PL</span>
     </a>
   </div>
 
   <div class="kategorie">
     <nav>
       <ul>
-        <li><a href="kat1.html">Kategoria 1</a></li>
-        <li><a href="kat2.html">Kategoria 2</a></li>
-        <li><a href="kat3.html">Kategoria 3</a></li>
-        <li><a href="kat4.html">Kategoria 4</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kat1.html">ETUI NA TELEFON</a></li>
+        <li><a href="kat2.html">ETUI NA AIRPODS</a></li>
+        <li><a href="kat3.html">PORTFELE</a></li>
+        <li><a href="kat4.html">AKCESORIA</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="right-group">
+    <a href="kontakt.html">Kontakt</a>
+    <button class="cart" aria-label="Koszyk zakupów">
+      <!-- Ikona koszyka -->
+      <svg class="icon-cart" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="9" cy="21" r="1" fill="currentColor"></circle>
+        <circle cx="20" cy="21" r="1" fill="currentColor"></circle>
+        <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span class="cart-count" aria-live="polite" aria-atomic="true">0</span>
+    </button>
     <div class="search-bar">
-      <input type="text" placeholder="Szukaj produktów...">
+      <input type="text" list="search-suggestions" id="search-input" placeholder="Szukaj produktów...">
+      <datalist id="search-suggestions">
+        <option value="Produkt 1" data-href="prod1.html">
+        <option value="Produkt 2" data-href="prod2.html">
+        <option value="Produkt 3" data-href="prod3.html">
+        <option value="Produkt 4" data-href="prod4.html">
+        <option value="Produkt 5" data-href="prod5.html">
+        <option value="Produkt 6" data-href="prod6.html">
+        <option value="Produkt 7" data-href="prod7.html">
+        <option value="Produkt 8" data-href="prod8.html">
+        <option value="Produkt 9" data-href="prod9.html">
+        <option value="Produkt 10" data-href="prod10.html">
+      </datalist>
     </div>
     <div class="social-media">
       <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
@@ -63,17 +85,13 @@
         <section class="products-zone">
           <!-- Oryginalne opisy (ukryte źródło danych) -->
           <section class="prod_description" hidden>
-              <div class="product1" data-title="Produkt 1" data-price="99.99 PLN">
-                  <h2>Produkt 1</h2>
-                  <p>Opis produktu 1</p>
+              <div class="product1" data-title="Czarne etui na słuchawki AirPods 3" data-price="99.99 PLN">
+                  <h2>Czarne etui na słuchawki AirPods 3</h2>
+                  <p> Zadbaj o swoje AirPods w wyjątkowy sposób – wybierz etui, które łączy ochronę, jakość i elegancję.</p>
               </div>
-              <div class="product2" data-title="Produkt 2" data-price="149.99 PLN">
-                  <h2>Produkt 2</h2>
-                  <p>Opis produktu 2</p>
-              </div>
-              <div class="product3" data-title="Produkt 3" data-price="79.99 PLN">
-                  <h2>Produkt 3</h2>
-                  <p>Opis produktu 3</p>
+              <div class="product2" data-title="Zielone etui na słuchawki AirPods 4" data-price="149.99 PLN">
+                  <h2>Zielone etui na słuchawki AirPods 4</h2>
+                  <p> Zadbaj o swoje AirPods w wyjątkowy sposób – wybierz etui, które łączy ochronę, jakość i elegancję.</p>
               </div>
           </section>
 
@@ -81,19 +99,14 @@
               <h2>Polecane Produkty</h2>
               <div class="product-list">
                   <div class="product-item" data-ref="product1" tabindex="0">
-                      <img src="dist/img/product1.jpg" alt="Produkt 1">
-                      <h3>Produkt 1</h3>
+                      <img src="dist/img/IMG_5075.PNG" alt="Produkt 1">
+                      <h3>Czarne etui na słuchawki AirPods 3</h3>
                       <span class="price">99.99 PLN</span>
                   </div>
                   <div class="product-item" data-ref="product2" tabindex="0">
-                      <img src="dist/img/product2.jpg" alt="Produkt 2">
-                      <h3>Produkt 2</h3>
+                      <img src="dist/img/IMG_5067.PNG" alt="Produkt 2">
+                      <h3>Zielone etui na słuchawki AirPods 4</h3>
                       <span class="price">149.99 PLN</span>
-                  </div>
-                  <div class="product-item" data-ref="product3" tabindex="0">
-                      <img src="dist/img/product3.jpg" alt="Produkt 3">
-                      <h3>Produkt 3</h3>
-                      <span class="price">79.99 PLN</span>
                   </div>
               </div>
           </section>
