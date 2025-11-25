@@ -3052,3 +3052,14 @@ header .right-group .cart:focus-visible {
   }
   .featured-products .product-item { min-height: 400px; }
 }
+
+/* Lazy loading images */
+img.lazy {
+  filter: blur(14px);
+  opacity: .45;
+  transition: filter .55s ease, opacity .55s ease;
+}
+img.is-loaded {
+  filter: blur(0);
+  opacity: 1;
+}

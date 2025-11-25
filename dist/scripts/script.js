@@ -620,4 +620,56 @@ document.addEventListener('DOMContentLoaded', () => {
     target.focus({ preventScroll:true });
     setTimeout(()=> target.removeAttribute('tabindex'), 1000);
   });
+
+  /* Lazy loading obrazów przez IntersectionObserver */
+  (() => {
+    const imgs = Array.from(document.querySelectorAll('img'))
+      .filter(img => !img.hasAttribute('data-no-lazy'));
+
+    // Przygotowanie: przeniesienie src -> data-src
+    imgs.forEach(img => {
+      if (!img.dataset.src) img.dataset.src = img.src;
+      img.removeAttribute('src');
+      img.classList.add('lazy');
+    });
+
+    function loadImage(img) {
+      const src = img.dataset.src;
+      if (!src) return;
+      img.src = src;
+      img.addEventListener('load', () => {
+        img.classList.add('is-loaded');
+      }, { once: true });
+      delete img.dataset.src;
+    }
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            loadImage(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '200px 0px', /* wczytuj trochę wcześniej */
+        threshold: 0.01
+      });
+      imgs.forEach(img => io.observe(img));
+    } else {
+      // Fallback (starsze przeglądarki)
+      const onScroll = () => {
+        const vh = window.innerHeight;
+        imgs.forEach(img => {
+          if (!img.dataset.src) return;
+          const r = img.getBoundingClientRect();
+          if (r.top < vh + 200) loadImage(img);
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    }
+  })();
 });
