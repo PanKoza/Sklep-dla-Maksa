@@ -672,4 +672,48 @@ document.addEventListener('DOMContentLoaded', () => {
       onScroll();
     }
   })();
+
+  /* Toggle hamburgera: pokazuj/ukrywaj right-group-menu */
+  (() => {
+    const btn = document.querySelector('.hamburger');
+    const menu = document.getElementById('right-group-menu');
+    if (!btn || !menu) return;
+
+    // start: ukryte
+    btn.setAttribute('aria-expanded', 'false');
+    menu.hidden = true;
+
+    const toggle = () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      menu.hidden = expanded;
+    };
+
+    btn.addEventListener('click', toggle);
+
+    // zamknij po kliknięciu poza menu lub po kliknięciu linków w menu
+    document.addEventListener('click', (e) => {
+      if (e.target === btn || btn.contains(e.target)) return;
+      if (!menu.hidden && !menu.contains(e.target)) {
+        btn.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      }
+    });
+    menu.addEventListener('click', (e) => {
+      const tag = e.target.closest('a, button');
+      if (!tag) return;
+      // zamknij po akcji
+      btn.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    });
+
+    // ESC zamyka
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        btn.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+        btn.focus();
+      }
+    });
+  })();
 });

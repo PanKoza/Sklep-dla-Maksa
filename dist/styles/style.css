@@ -1,5 +1,5 @@
 :root {
-  --info-height: 52px;      /* było: 70px */
+  --info-height: 25px; /* było: 52px */
   --header-height: 90px;
   --bg-light: #ffffff;
   --accent: #e4002b;
@@ -7,6 +7,12 @@
   --shadow: 0 2px 6px rgba(0,0,0,.08);
   --social-size: 34px;
   --social-hover-scale: 1.12;
+
+  /* Responsywna typografia i padding dla przycisków i linków */
+  --btn-fs: clamp(.78rem, .6vw + .72rem, .95rem);
+  --btn-pad-y: clamp(.45rem, .6vw, .65rem);
+  --btn-pad-x: clamp(.8rem, 1vw, 1.2rem);
+  --link-fs: clamp(.82rem, .6vw + .7rem, 1rem);
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -85,7 +91,7 @@ header .logo {
 }
 
 header .logo img {
-  height: 90px;
+  height: 64px;             /* było: 90px */
   width:auto;
   display:block;
   object-fit:contain;
@@ -93,7 +99,7 @@ header .logo img {
 
 header .site-name {
   font-family: "Squada One", sans-serif;
-  font-size:clamp(1.4rem, 1.1vw + 1rem, 2rem);
+  font-size:clamp(1.2rem, 1vw + .9rem, 1.8rem);  /* było: clamp(1.4rem, 1.1vw + 1rem, 2rem) */
   font-weight:700;
   letter-spacing:.5px;
   color:#111;
@@ -109,7 +115,7 @@ header .kategorie {
   display:flex;
   align-items:center;
   z-index:2;
-  max-width:60%;
+  max-width: 40%;
 }
 
 header .kategorie nav ul {
@@ -263,10 +269,11 @@ header .social-icon:focus-visible {
     flex-wrap:wrap;
     gap:1.1rem 1.6rem;
   }
-  header .logo img { height:48px; }
+  header .logo img { height:44px; }           /* było: 48px */
 }
 
-@media (max-width:520px) {
+@media (max-width:600px) {
+  :root { --info-height: 40px; } /* było: 44px */
   header .kategorie nav ul { justify-content:center; }
   header .search-bar input { width:140px; }
 }
@@ -3063,3 +3070,75 @@ img.is-loaded {
   filter: blur(0);
   opacity: 1;
 }
+
+/* Hamburger */
+.hamburger {
+  --size: clamp(34px, 4.2vw, 42px);
+  width: var(--size);
+  height: var(--size);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.hamburger span {
+  display:block;
+  width: 60%;
+  height: 2px;
+  background: #222;
+  transition: transform .25s, opacity .25s, width .25s;
+}
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); width:70%; }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); width:70%; }
+
+/* Panel menu po prawej */
+.right-group-menu {
+  position: absolute;
+  top: 100%;
+  right: .75rem;
+  min-width: 240px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: .75rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  display: grid;
+  gap: .6rem;
+  z-index: 1001;
+}
+/* Ukrywanie gdy ma atrybut hidden */
+.right-group-menu[hidden] { display: none !important; }
+
+/* Hamburger widoczny */
+.hamburger {
+  --size: clamp(34px, 4.2vw, 42px);
+  width: var(--size);
+  height: var(--size);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.hamburger span {
+  display:block;
+  width: 60%;
+  height: 2px;
+  background: #222;
+  transition: transform .25s, opacity .25s, width .25s;
+}
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); width:70%; }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); width:70%; }
