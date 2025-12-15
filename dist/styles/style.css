@@ -2844,7 +2844,7 @@ header .right-group .snipcart-checkout .icon-cart {
   color: currentColor;            /* dziedziczy z przycisku */
 }
 
-header .right-group .snipcart-checkout .cart-count {
+header .right-group .snipcart-checkout .snipcart-items-count {
   position: absolute;
   top: -6px;
   right: -6px;
@@ -2874,8 +2874,8 @@ header .right-group .snipcart-checkout:focus-visible {
   box-shadow: 0 14px 34px -14px rgba(228,0,43,.6);
 }
 
-header .right-group .snipcart-checkout:hover .cart-count,
-header .right-group .snipcart-checkout:focus-visible .cart-count {
+header .right-group .snipcart-checkout:hover .snipcart-items-count,
+header .right-group .snipcart-checkout:focus-visible .snipcart-items-count {
   transform: translateY(-1px);
 }
 
@@ -2893,7 +2893,7 @@ header .right-group .snipcart-checkout:focus-visible {
     padding: 0 .7rem;
   }
   header .right-group .snipcart-checkout .icon-cart { width: 20px; height: 20px; }
-  header .right-group .snipcart-checkout .cart-count {
+  header .right-group .snipcart-checkout .snipcart-items-count {
     top: -5px;
     right: -5px;
     min-width: 16px;
