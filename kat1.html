@@ -5,10 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna</title>
   <link rel="stylesheet" href="dist/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
-<header>
+ <script>
+    window.SnipcartSettings = {
+        publicApiKey: 'YjhlNjdhNjItYjNmMy00YTc3LWFhMmMtNmNmNjVjOTNjOTNhNjM5MDEwNjM5NDExNzcxNzgy',
+        modalStyle: "side",
+        currency: "PLN",
+    };
+
+    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+</script>
+  
+<info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
+   
+    <header>
   <div class="brand">
     <a href="index.html" class="logo">
       <img src="dist/img/1.png" alt="Logo Sklepu">
@@ -28,17 +42,38 @@
   </div>
 
   <div class="right-group">
-    <a href="kontakt.html">Kontakt</a>
-    <button class="cart" aria-label="Koszyk zakupów">
-      <!-- Ikona koszyka -->
-      <svg class="icon-cart" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <circle cx="9" cy="21" r="1" fill="currentColor"></circle>
-        <circle cx="20" cy="21" r="1" fill="currentColor"></circle>
-        <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <button class="snipcart-checkout" type="button" aria-label="Koszyk">
+      <!-- prosta ikona koszyka -->
+      <svg class="icon-cart" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 .001 4A2 2 0 0 0 17 18zM6.2 6h13.07a1 1 0 0 1 .98 1.2l-1.4 7a2 2 0 0 1-1.96 1.6H9.05a2 2 0 0 1-1.96-1.6L5.4 5H3a1 1 0 1 1 0-2h3a1 1 0 0 1 .97.76L8.2 12h8.5l1.1-5.6H6.2z" fill="currentColor"></path>
       </svg>
-      <span class="cart-count" aria-live="polite" aria-atomic="true">0</span>
+      <span class="snipcart-items-count" aria-label="Liczba produktów w koszyku">0</span>
     </button>
+
+        <!-- Przycisk koszyka obok hamburgera -->
+    <button class="hamburger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="right-group-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Panel hamburgera -->
+    <div id="right-group-menu" class="right-group-menu" hidden>
+      <button class="collab-btn" type="button" aria-label="Przejdź do formularza współpracy" data-scroll-target="#contact-form">Współpraca</button>
+      <a href="kontakt.html" class="contact-link">Kontakt</a>
+      <div class="social-media">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+           class="social-icon" aria-label="Facebook">
+          <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+          <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+           class="social-icon" aria-label="Instagram">
+          <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+          <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+        </a>
+      </div>
+    </div>
+
+    <!-- Search bar poza hamburgerem -->
     <div class="search-bar">
       <input type="text" list="search-suggestions" id="search-input" placeholder="Szukaj produktów...">
       <datalist id="search-suggestions">
@@ -53,18 +88,6 @@
         <option value="Produkt 9" data-href="prod9.html">
         <option value="Produkt 10" data-href="prod10.html">
       </datalist>
-    </div>
-    <div class="social-media">
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
-         class="social-icon" aria-label="Facebook">
-        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
-        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-         class="social-icon" aria-label="Instagram">
-        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
-        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
-      </a>
     </div>
   </div>
 </header>
@@ -83,20 +106,16 @@
         <section class="products-zone">
           <!-- Oryginalne opisy (ukryte źródło danych) -->
           <section class="prod_description" hidden>
-              <div class="product1" data-title="Matowe czarne etui na telefon" data-price="99.99 PLN">
-                  <h2>Matowe czarne etui na telefon</h2>
+              <div class="product1" data-title="Brązowe etui na telefon iPhone’a 17 pro max" data-price="119.99 PLN">
+                  <h2>Brązowe etui na telefon iPhone’a 17 pro max</h2>
                   <p>Postaw na styl, bezpieczeństwo i komfort każdego dnia – wybierz etui, które podkreśli wyjątkowość Twojego iPhone’a.</p>
               </div>
-              <div class="product2" data-title="Matowe brązowe etui na telefon" data-price="149.99 PLN">
-                  <h2>Matowe brązowe etui na telefon</h2>
+              <div class="product2" data-title="Ciemnobrązowe etui na telefon iPhone’a 17 pro max" data-price="119.99 PLN">
+                  <h2>Ciemnobrązowe etui na telefon iPhone’a 17 pro max</h2>
                   <p>Postaw na styl, bezpieczeństwo i komfort każdego dnia – wybierz etui, które podkreśli wyjątkowość Twojego iPhone’a.</p>
               </div>
-              <div class="product3" data-title="Matowe brązowe etui na telefon" data-price="149.99 PLN">
-                  <h2>Matowe brązowe etui na telefon</h2>
-                  <p>Postaw na styl, bezpieczeństwo i komfort każdego dnia – wybierz etui, które podkreśli wyjątkowość Twojego iPhone’a.</p>
-              </div>
-              <div class="product4" data-title="Matowe brązowe etui na telefon" data-price="149.99 PLN">
-                  <h2>Matowe brązowe etui na telefon</h2>
+              <div class="product3" data-title="Matowe czarne etui na telefon iPhone’a 16 pro" data-price="119.99 PLN">
+                  <h2>Matowe czarne etui na telefon iPhone’a 16 pro</h2>
                   <p>Postaw na styl, bezpieczeństwo i komfort każdego dnia – wybierz etui, które podkreśli wyjątkowość Twojego iPhone’a.</p>
               </div>
           </section>
@@ -112,17 +131,12 @@
                 <div class="product-item" data-ref="product2" data-href="prod2.html" role="link" tabindex="0">
                     <img src="dist/img/Projekt bez nazwy (13).png" alt="Matowe brązowe etui na telefon">
                     <h3>Matowe brązowe etui na telefon</h3>
-                    <span class="price">149.99 PLN</span>
+                    <span class="price">119.99 PLN</span>
                 </div>
                 <div class="product-item" data-ref="product3" data-href="prod3.html" role="link" tabindex="0">
-                    <img src="dist/img/Projekt bez nazwy (9).png" alt="Matowe brązowe etui na telefon">
-                    <h3>Matowe brązowe etui na telefon</h3>
-                    <span class="price">149.99 PLN</span>
-                </div>
-                <div class="product-item" data-ref="product4" data-href="prod4.html" role="link" tabindex="0">
-                    <img src="dist/img/Projekt bez nazwy (17).png" alt="Matowe brązowe etui na telefon">
-                    <h3>Matowe brązowe etui na telefon</h3>
-                    <span class="price">149.99 PLN</span>
+                    <img src="dist/img/Projekt bez nazwy (17).png" alt="Matowe czarne etui na telefon iPhone’a 16 pro">
+                    <h3>Matowe czarne etui na telefon iPhone’a 16 pro</h3>
+                    <span class="price">119.99 PLN</span>
                 </div>
               </div>
           </section>
