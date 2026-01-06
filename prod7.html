@@ -5,30 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna</title>
   <link rel="stylesheet" href="dist/styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
+ <script>
+    window.SnipcartSettings = {
+        publicApiKey: 'YjhlNjdhNjItYjNmMy00YTc3LWFhMmMtNmNmNjVjOTNjOTNhNjM5MDEwNjM5NDExNzcxNzgy',
+        modalStyle: "side",
+        currency: "PLN",
+    };
+
+    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+</script>
+  
+<info><h1>Witamy w naszym sklepie!</h1> <h1>Najlepsze produkty w najlepszych cenach!</h1> <h1>Zapraszamy do zakupów!</h1></info>
+   
     <header>
   <div class="brand">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Logo Sklepu">
-      <span class="site-name">Nazwa Sklepu</span>
+      <img src="dist/img/1.png" alt="Logo Sklepu">
+      <span class="site-name">WZORUJEMY.PL</span>
     </a>
   </div>
 
   <div class="kategorie">
     <nav>
       <ul>
-        <li><a href="kat1.html">Kategoria 1</a></li>
-        <li><a href="kat2.html">Kategoria 2</a></li>
-        <li><a href="kat3.html">Kategoria 3</a></li>
-        <li><a href="kat4.html">Kategoria 4</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kat1.html">ETUI NA TELEFON</a></li>
+        <li><a href="kat2.html">ETUI NA AIRPODS</a></li>
+        <li><a href="kat3.html">PORTFELE</a></li>
+        <li><a href="kat4.html">AKCESORIA</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="right-group">
+    <button class="snipcart-checkout" type="button" aria-label="Koszyk">
+      <!-- prosta ikona koszyka -->
+      <svg class="icon-cart" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 .001 4A2 2 0 0 0 17 18zM6.2 6h13.07a1 1 0 0 1 .98 1.2l-1.4 7a2 2 0 0 1-1.96 1.6H9.05a2 2 0 0 1-1.96-1.6L5.4 5H3a1 1 0 1 1 0-2h3a1 1 0 0 1 .97.76L8.2 12h8.5l1.1-5.6H6.2z" fill="currentColor"></path>
+      </svg>
+      <span class="snipcart-items-count" aria-label="Liczba produktów w koszyku">0</span>
+    </button>
+
+        <!-- Przycisk koszyka obok hamburgera -->
+    <button class="hamburger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="right-group-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Panel hamburgera -->
+    <div id="right-group-menu" class="right-group-menu" hidden>
+      <button class="collab-btn" type="button" aria-label="Przejdź do formularza współpracy" data-scroll-target="#contact-form">Współpraca</button>
+      <a href="kontakt.html" class="contact-link">Kontakt</a>
+      <div class="social-media">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+           class="social-icon" aria-label="Facebook">
+          <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
+          <img src="dist/img/facebook.webp" class="hover-icon" alt="">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+           class="social-icon" aria-label="Instagram">
+          <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
+          <img src="dist/img/instagram.webp" class="hover-icon" alt="">
+        </a>
+      </div>
+    </div>
+
+    <!-- Search bar poza hamburgerem -->
     <div class="search-bar">
       <input type="text" list="search-suggestions" id="search-input" placeholder="Szukaj produktów...">
       <datalist id="search-suggestions">
@@ -44,42 +87,32 @@
         <option value="Produkt 10" data-href="prod10.html">
       </datalist>
     </div>
-    <div class="social-media">
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
-         class="social-icon" aria-label="Facebook">
-        <img src="dist/img/facebook-5222.svg" class="default-icon" alt="">
-        <img src="dist/img/facebook.webp" class="hover-icon" alt="">
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-         class="social-icon" aria-label="Instagram">
-        <img src="dist/img/instagram-logo-8869.svg" class="default-icon" alt="">
-        <img src="dist/img/instagram.webp" class="hover-icon" alt="">
-      </a>
-    </div>
   </div>
 </header>
 
     <main class="product-detail">
   <div class="product-gallery">
-    <img src="dist/img/product1.jpg" alt="Produkt 1">
+    <img src="dist/img/Projekt bez nazwy (37).png" alt="Męski luksusowy portfel biznesowy zielony">
+    <!-- Tekst graweru na zdjęciu -->
+    <div id="grawer-preview" class="grawer-preview" aria-hidden="true"></div>
   </div>
 
   <section class="product-info">
-    <h1 class="product-title">Produkt 1</h1>
+    <h1 class="product-title">Męski luksusowy portfel biznesowy zielony</h1>
     <p class="product-price">
       <span class="price" data-price="99.99">99,99 PLN</span>
     </p>
 
-    <div class="product-qty">
-      <label for="qty">Ilość</label>
-      <div class="qty-control">
-        <button type="button" class="qty-btn minus" aria-label="Zmniejsz ilość">−</button>
-        <input id="qty" class="qty-input" type="number" min="1" max="99" step="1" value="1" inputmode="numeric" pattern="[0-9]*">
-        <button type="button" class="qty-btn plus" aria-label="Zwiększ ilość">+</button>
-      </div>
-    </div>
+    <p class="product-short-desc">Styl, klasa i funkcjonalność w jednym. Wykonany z wysokiej jakości zamszu, który nadaje mu wyjątkowo elegancki i nowoczesny charakter. Jego przyjemna w dotyku faktura sprawia, że już od pierwszego momentu czujesz, że trzymasz w dłoni coś wyjątkowego.</p>
 
-    <button type="button" class="add-to-cart" data-product-id="product1">Dodaj do koszyka</button>
+    <p class="product-short-desc">Dzięki dużej pojemności z łatwością uporządkujesz wszystkie niezbędne rzeczy – dokumenty, karty, banknoty i monety. Wewnątrz znajdziesz dodatkową, praktyczną kieszeń, a na zewnętrznej stronie — specjalne miejsce na telefon, które gwarantuje szybki dostęp, gdy liczy się każda sekunda.</p>
+
+    <button type="button" class="snipcart-add-item" data-product-id="product7" 
+  data-item-id="Men's-luxury-business-wallet-green"
+  data-item-price="99.99"
+  data-item-description="Ten portfel to idealne połączenie luksusu, funkcjonalności i wygody. Doskonały dla mężczyzny, który ceni styl, porządek i profesjonalny wygląd każdego dnia."
+  data-item-image="dist/img/Projekt bez nazwy (37).png"
+  data-item-name="Męski luksusowy portfel biznesowy zielony">Dodaj do koszyka</button>
   </section>
 </main>
 
@@ -106,8 +139,8 @@
   <h2>Opis produktu</h2>
   <div class="desc-card">
     <div class="desc-text">
-      <p>Produkt 1 to wysokiej jakości rozwiązanie zaprojektowane z myślą o wygodzie i trwałości. Starannie dobrane materiały oraz nowoczesny design sprawiają, że idealnie sprawdzi się w codziennym użytkowaniu.</p>
-      <p>Dzięki intuicyjnej obsłudze i solidnej konstrukcji, produkt zapewnia niezawodność oraz satysfakcję z zakupu przez długi czas.</p>
+      <p>Styl, klasa i funkcjonalność w jednym. Wykonany z wysokiej jakości zamszu, który nadaje mu wyjątkowo elegancki i nowoczesny charakter. Jego przyjemna w dotyku faktura sprawia, że już od pierwszego momentu czujesz, że trzymasz w dłoni coś wyjątkowego.</p>
+      <p>Ten portfel to idealne połączenie luksusu, funkcjonalności i wygody. Doskonały dla mężczyzny, który ceni styl, porządek i profesjonalny wygląd każdego dnia.</p>
 
       <ul class="desc-features">
         <li>Wysoka jakość wykonania i trwałe materiały</li>
@@ -120,11 +153,10 @@
     <aside class="desc-aside">
       <h3>Specyfikacja</h3>
       <ul class="spec-list">
-        <li><span>Model</span><span>PROD-1</span></li>
-        <li><span>Materiał</span><span>Aluminium / Tworzywo</span></li>
-        <li><span>Wymiary</span><span>200 × 120 × 80 mm</span></li>
-        <li><span>Waga</span><span>0,9 kg</span></li>
-        <li><span>Kolor</span><span>Czarny</span></li>
+        <li><span>Model</span><span>Męska saszetka</span></li>
+        <li><span>Materiał</span><span>Sztuczna skóra</span></li>
+        <li><span>Wymiary</span><span>17 x 25 x 1 cm</span></li>
+        <li><span>Kolor</span><span>Zielony</span></li>
       </ul>
     </aside>
   </div>
