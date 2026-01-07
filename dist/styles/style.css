@@ -995,7 +995,7 @@ hero buttons button {
 kategorie {
   display:block;
   position:relative;
-  max-width:1400px;
+  max-width: 100%;
   margin:5rem auto 6rem;
   padding:0 2rem 3.5rem;
 }
@@ -1383,7 +1383,7 @@ about .about-badge {
 opisy {
   display:block;
   position:relative;
-  max-width:1400px;
+  max-width:100%;
   margin:5rem auto 6rem;
   padding:0 2rem 3.5rem;
 }

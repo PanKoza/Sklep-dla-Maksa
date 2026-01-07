@@ -1,0 +1,153 @@
+/* Smartfony <= 640px */
+@media (max-width: 640px) {
+  :root {
+    --info-height: 36px;
+    --header-height: 72px;
+    --btn-fs: clamp(.8rem, 2.2vw + .6rem, .9rem);
+    --btn-pad-y: .5rem;
+    --btn-pad-x: 1rem;
+    --link-fs: clamp(.86rem, 1.8vw + .6rem, .95rem);
+  }
+
+  /* Pasek info i body */
+  body { padding-top: var(--info-height); }
+  info { gap: .6rem; padding: 0 .6rem; }
+  info h1 { font-size: .85rem; }
+
+  /* Header */
+  header { height: auto; padding: .4rem .6rem; box-shadow: 0 6px 16px -14px rgba(0,0,0,.2); }
+  header .brand { padding: 0; }
+  header .logo img { height: 38px; }
+  header .site-name { font-size: clamp(1rem, 3vw, 1.3rem); }
+  header .kategorie { margin-top: .1rem; }
+  header .kategorie nav ul { gap: .9rem; }
+  header .kategorie nav a { font-size: .78rem; }
+  header .right-group { gap: .6rem; padding: 0; }
+  header .search-bar input { width: 120px; }
+
+  /* Hero */
+  hero { padding: 1.2rem; gap: 1rem; height: auto; }
+  hero .hero-content { padding: 1.2rem 1rem 3.8rem; }
+  hero .hero-content h2 { font-size: clamp(1.5rem, 4.6vw, 2rem); }
+  hero .hero-content p { font-size: .92rem; }
+  hero .hero-content .buy-button { padding: .75rem 1.2rem; font-size: .92rem; }
+  hero .hero-image { min-height: 240px; border-radius: 16px; }
+
+  /* Produkty */
+  #products { gap: 2rem; margin: 3rem auto 3.8rem; padding: 0 1rem; }
+  #products .product,
+  #products .product:nth-child(even) {
+    padding: 1.6rem 1.2rem 1.9rem;
+    gap: 1.4rem;
+    border-radius: 20px;
+  }
+  #products .product-image { border-radius: 16px; }
+
+  /* Kategorie slider */
+  kategorie { margin: 3.6rem auto 4.2rem; padding: 0 1rem 2.4rem; }
+  kategorie > h1 { font-size: clamp(1.4rem, 4.6vw, 1.9rem); }
+    kategorie .kategorie-slider .kategoria-card { min-width: 140px; }
+    kategorie .kategoria-card img { border-radius: 12px; }
+    /* Karty polecanych (gdy wystąpią) */
+
+  /* Opisy (galeria) */
+  opisy { margin: 3.2rem auto 4rem; padding: 0 1rem 2.2rem; }
+
+  /* About */
+  about { margin: 4rem auto 4.2rem; padding: 0 1rem; }
+  about .about-inner { padding: 1.6rem 1rem 1.9rem; border-radius: 24px; gap: 1.4rem; }
+  about .about-image { min-height: 260px; border-radius: 18px; }
+
+  /* Kontakt (sekcja domowa + karta) */
+  .home-contact { margin: 3.4rem auto 1.2rem; padding: 0 1rem; }
+  .contact-card { padding: 1.2rem; border-radius: 22px; }
+
+  /* Stopka */
+  footer { margin-top: 4.2rem; padding: 2.4rem 1rem 1.4rem; }
+
+  /* kategorie w headerze w 2 kolumnach, skalowane odstępy i fonty */
+  header .kategorie {
+    width: 100%;
+    max-width: 100%;
+    margin: .2rem 0 0;
+  }
+  header .kategorie nav ul {
+    /* skalowalny odstęp i pełna szerokość */
+    --nav-gap: clamp(.35rem, 2.5vw, .8rem);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nav-gap);
+    justify-content: center;
+    padding-inline: clamp(.25rem, 2vw, .6rem);
+  }
+  header .kategorie nav li {
+    /* dwie kolumny, elementy mogą się kurczyć i zawijać */
+    flex: 1 1 calc(50% - var(--nav-gap));
+    min-width: calc(50% - var(--nav-gap));
+    display: flex;
+    justify-content: center;
+  }
+  header .kategorie nav a {
+    /* skalowalna typografia i ciaśniejsze paddingi */
+    font-size: clamp(.74rem, 2.8vw + .4rem, .92rem);
+    letter-spacing: clamp(.1px, .15vw, .3px);
+    padding: .4rem .25rem;
+    line-height: 1.2;
+  }
+  header .kategorie nav a::after {
+    bottom: -4px;
+    height: 2px;
+  }
+  header .kategorie nav a:hover::after,
+  header .kategorie nav a:focus-visible::after {
+    width: clamp(22px, 12vw, 32px);
+  }
+}
+
+/* Bardzo małe telefony <= 480px */
+@media (max-width: 480px) {
+  :root { --info-height: 34px; --header-height: 66px; }
+
+  /* Header uproszczenia */
+  header .site-name { display: none; }
+  header .kategorie nav a { font-size: .72rem; }
+  .hamburger { --size: 36px; }
+
+  /* Hero jeszcze lżejszy */
+  hero { padding: 1rem; }
+  hero .hero-image { min-height: 220px; border-radius: 14px; }
+  hero .hero-content h2 { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+
+  /* Produkty – ciaśniej */
+  #products { gap: 1.6rem; margin: 2.4rem auto 3rem; }
+  #products .product,
+  #products .product:nth-child(even) {
+    padding: 1.4rem 1rem 1.6rem;
+    border-radius: 18px;
+  }
+  #products .product-image { border-radius: 14px; }
+
+  /* Karty polecanych (gdy wystąpią) */
+  .featured-products .product-item { min-height: 360px; }
+
+  /* Formularze */
+  .contact-form { gap: .85rem; }
+
+  /* kategorie w headerze w 2 kolumnach, jeszcze ciaśniej */
+  header .kategorie nav ul { --nav-gap: clamp(.3rem, 3vw, .6rem); }
+  header .kategorie nav a {
+    font-size: clamp(.72rem, 3.2vw + .35rem, .86rem);
+    padding: .35rem .2rem;
+    letter-spacing: clamp(.05px, .12vw, .25px);
+  }
+}
+
+/* Ultra małe <= 380px */
+@media (max-width: 380px) {
+  header .search-bar { display: none; }
+  header .kategorie nav a { padding: .1rem; letter-spacing: .3px; }
+
+  /* Przyciski koszyka i CTA pełnej szerokości gdzie ma sens */
+  .snipcart-add-item { width: 100%; text-align: center; }
+}
