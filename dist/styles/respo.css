@@ -103,6 +103,39 @@
   header .kategorie nav a:focus-visible::after {
     width: clamp(22px, 12vw, 32px);
   }
+
+  /* Smartfony <= 640px – układ pionowy: panel opisu nad listą produktów, sekcje jedna pod drugą */
+  /* cała siatka kategorii kat1 w jednej kolumnie */
+  .main-products-layout {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    padding: 0 1rem;
+  }
+
+  /* panel opisu nie jest sticky na mobile */
+  .product-description-panel {
+    position: static;
+    top: auto;
+    width: 100%;
+  }
+
+  /* sekcje w products-zone pod sobą */
+  .products-zone {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+  .products-zone > section {
+    display: block;
+    width: 100%;
+  }
+
+  /* Fallback i ukrycie sekcji źródłowych opisów na mobile */
+  [hidden] { display: none !important; }
+  .products-zone .prod_description {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }
 
 /* Bardzo małe telefony <= 480px */
@@ -141,6 +174,10 @@
     padding: .35rem .2rem;
     letter-spacing: clamp(.05px, .12vw, .25px);
   }
+
+  /* Bardzo małe telefony <= 480px – ciaśniejsze odstępy */
+  .main-products-layout { gap: 1.2rem; }
+  .products-zone { gap: 1rem; }
 }
 
 /* Ultra małe <= 380px */
