@@ -585,20 +585,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* GRAWER – podgląd tekstu na zdjęciu */
+  /* GRAWER – podgląd tekstu na zdjęciu + wybór czcionki */
   {
     const input = document.getElementById('grawer-text');
     const preview = document.getElementById('grawer-preview');
     const counter = document.querySelector('.grawer-counter');
+    const fontSelect = document.getElementById('grawer-font'); // Nowy element
+
     if (input && preview) {
       const render = () => {
         const txt = input.value.trim();
         preview.textContent = txt;
+        
+        // Aktualizacja widoczności
         preview.classList.toggle('visible', txt.length > 0);
+        
+        // Aktualizacja licznika
         if (counter) counter.textContent = `${input.value.length}/15`;
+
+        // Aktualizacja czcionki
+        if (fontSelect) {
+            preview.style.fontFamily = fontSelect.value;
+            
+            // Opcjonalnie: dostosowanie rozmiaru czcionki w zależności od jej rodzaju
+            // Niektóre czcionki (jak Dancing Script) mogą wydawać się mniejsze
+            if (fontSelect.value.includes('Dancing Script')) {
+                preview.style.fontSize = '1.4em'; // Powiększ nieco dla pisanej
+            } else {
+                preview.style.fontSize = ''; // Resetuj dla innych
+            }
+        }
       };
+
       input.addEventListener('input', render);
+      
+      // Nasłuchuj zmiany czcionki
+      if (fontSelect) {
+          fontSelect.addEventListener('change', render);
+      }
+      
       render();
+    }
+  }
+
+  /* GRAWER – Obsługa checkboxa (Przełączanie Ceny + Widoku Opisu/Formularza) */
+  {
+    const checkbox = document.getElementById('grawer-checkbox');
+    const priceDisplay = document.querySelector('.product-price .price');
+    const defaultDesc = document.getElementById('default-desc-container');
+    const grawerInputSection = document.getElementById('grawer-input-container');
+    
+    const grawerCost = 20.00;
+
+    if (checkbox && priceDisplay) {
+        // Pobieramy cenę bazową z atrybutu data-price
+        let basePrice = parseFloat(priceDisplay.dataset.price);
+        if (isNaN(basePrice)) basePrice = 119.99;
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                // 1. Zmień cenę
+                const newPrice = (basePrice + grawerCost).toFixed(2);
+                priceDisplay.textContent = newPrice.replace('.', ',') + ' PLN';
+
+                // 2. Schowaj opis, pokaż textarea
+                if(defaultDesc) defaultDesc.style.display = 'none';
+                if(grawerInputSection) grawerInputSection.style.display = 'block';
+
+            } else {
+                // 1. Wróć do starej ceny
+                priceDisplay.textContent = basePrice.toFixed(2).replace('.', ',') + ' PLN';
+
+                // 2. Pokaż opis, schowaj textarea
+                if(defaultDesc) defaultDesc.style.display = 'block';
+                if(grawerInputSection) grawerInputSection.style.display = 'none';
+            }
+        });
     }
   }
 
@@ -716,4 +778,70 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   })();
-});
+
+  // --- OBSŁUGA UKRYWANIA HEADER I INFO PRZY OTWARCIU KOSZYKA Z ZAPAMIĘTYWANIEM STANU ---
+  const cartBtn = document.querySelector('.snipcart-checkout');
+  const mainHeader = document.querySelector('header');
+  const infoBar = document.querySelector('info'); // POBIERANIE ELEMENTU INFO
+  const restoreBtn = document.getElementById('restoreHeaderBtn');
+  const STORAGE_KEY_HEADER = 'isHeaderHidden';
+
+  // Funkcja pomocnicza do ukrywania
+  const hideHeader = () => {
+    if (mainHeader) mainHeader.classList.add('hide-header');
+    if (infoBar) infoBar.classList.add('hide-info');
+    sessionStorage.setItem(STORAGE_KEY_HEADER, 'true'); // ZAPISZ STAN
+  };
+
+  // Funkcja pomocnicza do pokazywania
+  const showHeader = () => {
+    if (mainHeader) mainHeader.classList.remove('hide-header');
+    if (infoBar) infoBar.classList.remove('hide-info');
+    sessionStorage.setItem(STORAGE_KEY_HEADER, 'false'); // RESETUJ STAN
+  };
+
+  // 0. SPRAWDZENIE STANU PRZY ZAŁADOWANIU STRONY
+  if (mainHeader) {
+    const shouldBeHidden = sessionStorage.getItem(STORAGE_KEY_HEADER) === 'true';
+    
+    if (shouldBeHidden) {
+      // Wyłączamy animację na moment, żeby elementy nie "mignęły" przy ładowaniu
+      mainHeader.style.transition = 'none';
+      if (infoBar) infoBar.style.transition = 'none';
+      
+      hideHeader(); // Aplikujemy klasy
+      
+      // Przywróć animację (CSS) w następnej klatce
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          mainHeader.style.transition = ''; 
+          if (infoBar) infoBar.style.transition = '';
+        }, 50);
+      });
+    }
+  }
+
+  // 1. Kliknięcie w koszyk -> UKRYJ
+  if (cartBtn) {
+    cartBtn.addEventListener('click', hideHeader);
+  }
+
+  // 2. Kliknięcie w strzałkę -> POKAŻ
+  if (restoreBtn) {
+    restoreBtn.addEventListener('click', showHeader);
+  }
+
+  // 3. Obsługa zdarzeń Snipcart - TYLKO UKRYWANIE
+  document.addEventListener('snipcart.ready', () => {
+    Snipcart.events.on('cart.opened', hideHeader);
+
+    Snipcart.events.on('theme.routechanged', (routes) => {
+      if (routes.from === "/" && routes.to !== "/") {
+         hideHeader();
+      }
+    });
+  });
+
+  
+}); 
+/* TU SKOŃCZ EDYCJĘ - USUŃ WSZYSTKO PONIŻEJ TEJ LINIJKI W PLIKU JS */

@@ -92,6 +92,12 @@
   </div>
 </header>
 
+<button id="restoreHeaderBtn" class="restore-header-btn" aria-label="Pokaż menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6"/>
+    </svg>
+</button>
+
     <main class="product-detail">
   <div class="product-gallery">
     <img src="dist/img/Projekt bez nazwy (17).png" alt="Matowe czarne etui na telefon iPhone’a 16 pro">
@@ -105,16 +111,57 @@
       <span class="price" data-price="119.99">119,99 PLN</span>
     </p>
 
-    <p class="product-short-desc">Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością.</p>
+    <div id="default-desc-container">
+        <p class="product-short-desc">Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością.</p>
+        <p class="product-short-desc"> Dzięki wbudowanemu magnetycznemu systemowi, etui jest w pełni kompatybilne z ładowaniem indukcyjnym.</p>
+    </div>
 
-    <p class="product-short-desc"> Dzięki wbudowanemu magnetycznemu systemowi, etui jest w pełni kompatybilne z ładowaniem indukcyjnym.</p>
+    <!-- Ukryty kontener na Grawer -->
+    <div id="grawer-input-container" style="display: none; margin-bottom: 1.5rem;">
+        
+        <label for="grawer-text" style="display:block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem;">Wpisz tekst graweru:</label>
+        <textarea id="grawer-text" maxlength="15" rows="2" placeholder="Twój tekst (max 15 znaków)" 
+            style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: none; background: #f9f9f9; margin-bottom: 0.8rem;"></textarea>
+            
+        <!-- NOWY ELEMENT: WYBÓR CZCIONKI -->
+        <label for="grawer-font" style="display:block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem;">Wybierz styl pisma:</label>
+        <select id="grawer-font" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; background: #fff; cursor: pointer; font-size: 1rem;">
+            <option value="'Dancing Script', cursive">Ozdobna (Pisana)</option>
+            <option value="'Newsreader', serif">Elegancka (Szeryfowa)</option>
+            <option value="'Squada One', sans-serif">Nowoczesna (Pogrubiona)</option>
+            <option value="'Roboto', sans-serif">Prosta (Techniczna)</option>
+        </select>
 
+        <div style="text-align: right; font-size: 0.8rem; color: #666; margin-top: 4px;">
+            <span class="grawer-counter">0/15</span>
+        </div>
+        <p><b>UWAGA: To jest tylko podgląd graweru, nie zostanie zapisany w zamówieniu. Aby zostało zapisane w zamówieniu, dodaj grawer do koszyka oraz wpisz w nim tekst graweru oraz wybierz odpowiednią czcionkę.</b></p>
+    </div>
+
+    <!-- Kontener grupujący checkbox i przycisk w jednej linii -->
+    <div class="product-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-top: 1.5rem;">
+      
+      <div class="grawer-option" style="display: flex; align-items: center; gap: 0.5rem;">
+        <input type="checkbox" id="grawer-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #000;">
+        <label for="grawer-checkbox" style="font-weight: 500; cursor: pointer;">Podgląd graweru</label>
+      </div>
+      
     <button type="button" class="snipcart-add-item" data-product-id="product3" 
   data-item-id="matte-black-iphone-case-16-pro"
   data-item-price="119.99"
   data-item-description="Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością."
   data-item-image="dist/img/Projekt bez nazwy (17).png"
   data-item-name="Matowe czarne etui na telefon iPhone’a 16 pro">Dodaj do koszyka</button>
+
+        <button type="button" class="snipcart-add-item" data-product-id="Grawer" 
+        data-item-id="Grawer"
+        data-item-price="20.00"
+        data-item-description="Twój spersonalizowany grawer na etui."
+        data-item-custom1-name="Rodzaj czcionki"
+        data-item-custom1-options="Czcionka1|Czcionka2|Czcionka3|Czcionka4"
+        data-item-custom2-name="Tekst graweru"
+        data-item-custom2-type="textarea"
+        data-item-name="Grawer">Dodaj Grawer do koszyka</button>
   </section>
 </main>
 

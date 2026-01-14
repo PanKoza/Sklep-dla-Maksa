@@ -17,6 +17,7 @@
         publicApiKey: 'YjhlNjdhNjItYjNmMy00YTc3LWFhMmMtNmNmNjVjOTNjOTNhNjM5MDEwNjM5NDExNzcxNzgy',
         modalStyle: "side",
         currency: "pln",
+        addProductBehavior: "none",
     };
 
     (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
@@ -92,8 +93,14 @@
     </div>
   </div>
 </header>
+<button id="restoreHeaderBtn" class="restore-header-btn" aria-label="Pokaż menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6"/>
+    </svg>
+</button>
 
-    <hero role="region" aria-label="Wyróżnione">
+<hero role="region" aria-label="Wyróżnione">
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-content">
             <div class="prod1 is-active">
                 <h2>Pomarańczowy MagWallet</h2>
@@ -103,13 +110,13 @@
             <div class="prod2">
                 <h2>ZIELONE ETUI NA AIRPODS 4</h2>
                 <p>Wykonany z zamszowego materiału wygodnie leży w dłoni i idealnie chroni twoje AirPodsy.</p>
-                <a href="prod2.html" class="buy-button">Kup Teraz</a>
+                <a href="prod5.html" class="buy-button">Kup Teraz</a>
             </div>
 
             <div class="prod3">
                 <h2>Ciemnobrązowy Case na Iphona</h2>
                 <p>Wykonany z zamszowego materiału z technologią MagSafe. Flagowy produkt marki, posiada wbudowaną technologię MagSafe, miękki w dotyku materiał i złote wykończenia. Możliwość bezprzewodowego ładowania i połączenia innych urządzeń dzięki wbudowanemu w case magnesowi</p>
-                <a href="prod3.html" class="buy-button">Kup Teraz</a>
+                <a href="prod1.html" class="buy-button">Kup Teraz</a>
             </div>
         </div>
         <div class="hero-image">
@@ -138,7 +145,7 @@
 
         <div class="product">
             <div class="product-content">
-                <p>Realizujemy większe projekty, współpracujemy z firmami, agencjami i markami oraz wykonujemy zamówienia indywidualne. Chętnie podejmujemy się personalizacji produktów – od prostych napisów po skomplikowane grafiki i logotypy.
+                <p class="black-backgrond">Realizujemy większe projekty, współpracujemy z firmami, agencjami i markami oraz wykonujemy zamówienia indywidualne. Chętnie podejmujemy się personalizacji produktów – od prostych napisów po skomplikowane grafiki i logotypy.
                     Dysponujemy nowoczesną maszyną do grawerowania, dzięki której tworzymy precyzyjne i trwałe zdobienia na etui do telefonów, słuchawkach, brelokach i wielu innych akcesoriach.
                     Potrzebujesz serii gadżetów reklamowych, prezentów firmowych, numeracji produktów lub wyjątkowych oznaczeń?<br>
                     <b>Zgłoś się do nas – wzorujemy to!</b></p>

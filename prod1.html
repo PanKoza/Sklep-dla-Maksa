@@ -6,6 +6,8 @@
   <title>Strona główna</title>
   <link rel="stylesheet" href="dist/styles/style.css">
     <link rel="stylesheet" href="dist/styles/respo.css" media="(max-width: 640px)">
+  <!-- DODAJ TĘ LINIJKĘ DLA CZCIONKI PISANEJ -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,6 +16,7 @@
         publicApiKey: 'YjhlNjdhNjItYjNmMy00YTc3LWFhMmMtNmNmNjVjOTNjOTNhNjM5MDEwNjM5NDExNzcxNzgy',
         modalStyle: "side",
         currency: "PLN",
+        addProductBehavior: "none",
     };
 
     (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
@@ -91,7 +94,14 @@
   </div>
 </header>
 
-    <main class="product-detail">
+<!-- Przycisk przywracania nagłówka -->
+<button id="restoreHeaderBtn" class="restore-header-btn" aria-label="Pokaż menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6"/>
+    </svg>
+</button>
+
+<main class="product-detail">
   <div class="product-gallery">
     <img src="dist/img/Projekt bez nazwy (5).png" alt="Brązowe etui na telefon iPhone’a 17 pro max">
     <!-- Tekst graweru na zdjęciu -->
@@ -104,16 +114,60 @@
       <span class="price" data-price="119.99">119,99 PLN</span>
     </p>
 
-    <p class="product-short-desc">Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością.</p>
+    <!-- Zgrupowane opisy domyślne -->
+    <div id="default-desc-container">
+        <p class="product-short-desc">Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością.</p>
+        <p class="product-short-desc"> Dzięki wbudowanemu magnetycznemu systemowi, etui jest w pełni kompatybilne z ładowaniem indukcyjnym.</p>
+    </div>
 
-    <p class="product-short-desc"> Dzięki wbudowanemu magnetycznemu systemowi, etui jest w pełni kompatybilne z ładowaniem indukcyjnym.</p>
+    <!-- Ukryty kontener na Grawer -->
+    <div id="grawer-input-container" style="display: none; margin-bottom: 1.5rem;">
+        
+        <label for="grawer-text" style="display:block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem;">Wpisz tekst graweru:</label>
+        <textarea id="grawer-text" maxlength="15" rows="2" placeholder="Twój tekst (max 15 znaków)" 
+            style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: none; background: #f9f9f9; margin-bottom: 0.8rem;"></textarea>
+            
+        <!-- NOWY ELEMENT: WYBÓR CZCIONKI -->
+        <label for="grawer-font" style="display:block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem;">Wybierz styl pisma:</label>
+        <select id="grawer-font" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; background: #fff; cursor: pointer; font-size: 1rem;">
+            <option value="'Dancing Script', cursive">Ozdobna (Pisana)</option>
+            <option value="'Newsreader', serif">Elegancka (Szeryfowa)</option>
+            <option value="'Squada One', sans-serif">Nowoczesna (Pogrubiona)</option>
+            <option value="'Roboto', sans-serif">Prosta (Techniczna)</option>
+        </select>
 
-    <button type="button" class="snipcart-add-item" data-product-id="product1" 
-  data-item-id="brown-iphone-case-17-pro-max"
-  data-item-price="119.99"
-  data-item-description="Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością."
-  data-item-image="dist/img/Projekt bez nazwy (5).png"
-  data-item-name="Brązowe etui na telefon iPhone’a 17 pro max">Dodaj do koszyka</button>
+        <div style="text-align: right; font-size: 0.8rem; color: #666; margin-top: 4px;">
+            <span class="grawer-counter">0/15</span>
+        </div>
+        <p><b>UWAGA: To jest tylko podgląd graweru, nie zostanie zapisany w zamówieniu. Aby zostało zapisane w zamówieniu, dodaj grawer do koszyka oraz wpisz w nim tekst graweru oraz wybierz odpowiednią czcionkę.</b></p>
+    </div>
+
+    <!-- Kontener grupujący checkbox i przycisk w jednej linii -->
+    <div class="product-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-top: 1.5rem;">
+      
+      <div class="grawer-option" style="display: flex; align-items: center; gap: 0.5rem;">
+        <input type="checkbox" id="grawer-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #000;">
+        <label for="grawer-checkbox" style="font-weight: 500; cursor: pointer;">Podgląd graweru</label>
+      </div>
+
+      <button type="button" class="snipcart-add-item" data-product-id="product1" 
+        data-item-id="brown-iphone-case-17-pro-max"
+        data-item-price="119.99"
+        data-item-description="Idealne połączenie elegancji, komfortu i niezawodnej ochrony. Wykonane z wysokiej jakości sztruksu ze sztucznej skóry, zachwyca miękkim, aksamitnym wykończeniem, które doskonale leży w dłoni i sprawia, że korzystanie z telefonu staje się czystą przyjemnością."
+        data-item-image="dist/img/Projekt bez nazwy (5).png"
+        data-item-name="Brązowe etui na telefon iPhone’a 17 pro max">Dodaj do koszyka</button>
+
+        <button type="button" class="snipcart-add-item" data-product-id="Grawer" 
+        data-item-id="Grawer"
+        data-item-price="20.00"
+        data-item-description="Twój spersonalizowany grawer na etui."
+        data-item-custom1-name="Rodzaj czcionki"
+        data-item-custom1-options="Czcionka1|Czcionka2|Czcionka3|Czcionka4"
+        data-item-custom2-name="Tekst graweru"
+        data-item-custom2-type="textarea"
+        data-item-name="Grawer">Dodaj Grawer do koszyka</button>
+    </div>
+
   </section>
 </main>
 
@@ -228,5 +282,6 @@
 
     
 <script src="dist/scripts/script.js" defer></script>
+
 </body>
 </html>
